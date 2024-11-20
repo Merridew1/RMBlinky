@@ -1,7 +1,6 @@
 package frc.robot.subsystems.drive;
 
 import org.littletonrobotics.junction.AutoLog;
-import edu.wpi.first.math.geometry.Rotation2d;
 
 /**
  * DrivetrainIO interface
@@ -12,7 +11,10 @@ public interface DrivetrainIO {
      */
     @AutoLog
     public static class DrivetrainIOInputs {
-        public Rotation2d gyroYaw = new Rotation2d();
+        public double rightFrontMotor;
+        public double leftFrontMotor;
+        public double rightBackMotor;
+        public double leftbackMotor;
     }
 
     /** Updates the set of loggable inputs. */

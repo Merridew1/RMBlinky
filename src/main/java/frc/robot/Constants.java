@@ -21,6 +21,12 @@ public final class Constants {
      * Motor CAN id's.
      */
     public static final class Motors {
+        public static final class DriveTrainMotors {
+            public static final int FRMOTOR = 0;
+            public static final int FLMOTOR = 1;
+            public static final int BRMOTOR = 2;
+            public static final int BLMOTOR = 3;
+        }
     }
 
     /**
