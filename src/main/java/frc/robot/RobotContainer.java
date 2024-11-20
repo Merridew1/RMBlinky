@@ -1,5 +1,6 @@
 package frc.robot;
 
+import org.littletonrobotics.conduit.schema.Joystick;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -7,7 +8,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.WaitCommand;
-import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.Robot.RobotRunType;
 import frc.robot.subsystems.drive.Drivetrain;
 import frc.robot.subsystems.drive.DrivetrainIO;
@@ -21,14 +21,13 @@ import frc.robot.subsystems.drive.DrivetrainReal;
  */
 public class RobotContainer {
     /* Controllers */
-    private final CommandXboxController driver = new CommandXboxController(Constants.driverID);
-    private final CommandXboxController operator = new CommandXboxController(Constants.operatorID);
-
+    Joystick driver = new Joystick();
     // Initialize AutoChooser Sendable
     private final SendableChooser<String> autoChooser = new SendableChooser<>();
 
     /* Subsystems */
     private Drivetrain drivetrain;
+
 
     /**
      * The container for the robot. Contains subsystems, OI devices, and commands.

@@ -22,6 +22,7 @@ public class DrivetrainReal implements DrivetrainIO {
         FRMotor.addFollower(BRMotor);
 
         FRMotor.setInverted(true);
+        BRMotor.setInverted(true);
     }
 
 
