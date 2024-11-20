@@ -27,6 +27,10 @@ public final class Constants {
             public static final int BRMOTOR = 2;
             public static final int BLMOTOR = 3;
         }
+        public static final class IntakeMotors {
+            public static final int LMOTOR = 4;
+            public static final int RMOTOR = 5;
+        }
     }
 
     /**

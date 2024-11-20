@@ -1,7 +1,5 @@
 package frc.robot;
 
-import org.littletonrobotics.conduit.schema.Joystick;
-import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -9,6 +7,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.WaitCommand;
 import frc.robot.Robot.RobotRunType;
+import frc.robot.commands.Drive;
 import frc.robot.subsystems.drive.Drivetrain;
 import frc.robot.subsystems.drive.DrivetrainIO;
 import frc.robot.subsystems.drive.DrivetrainReal;
@@ -21,12 +20,12 @@ import frc.robot.subsystems.drive.DrivetrainReal;
  */
 public class RobotContainer {
     /* Controllers */
-    Joystick driver = new Joystick();
+    XboxController driver = new XboxController(0);
     // Initialize AutoChooser Sendable
     private final SendableChooser<String> autoChooser = new SendableChooser<>();
 
     /* Subsystems */
-    private Drivetrain drivetrain;
+    private Drivetrain driveTrain;
 
 
     /**
@@ -37,13 +36,13 @@ public class RobotContainer {
         autoChooser.setDefaultOption("Wait 1 Second", "wait");
         switch (runtimeType) {
             case kReal:
-                drivetrain = new Drivetrain(new DrivetrainReal());
+                driveTrain = new Drivetrain(new DrivetrainReal());
                 break;
             case kSimulation:
                 // drivetrain = new Drivetrain(new DrivetrainSim() {});
                 break;
             default:
-                drivetrain = new Drivetrain(new DrivetrainIO() {});
+                driveTrain = new Drivetrain(new DrivetrainIO() {});
         }
         // Configure the button bindings
         configureButtonBindings();
@@ -55,7 +54,15 @@ public class RobotContainer {
      * ({@link edu.wpi.first.wpilibj.Joystick} or {@link XboxController}), and then passing it to a
      * {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
      */
-    private void configureButtonBindings() {}
+
+    ;
+
+    private void configureButtonBindings() {
+
+        driveTrain.setDefaultCommand(new Drive(driveTrain, driver));
+
+
+    }
 
     /**
      * Gets the user's selected autonomous command.
