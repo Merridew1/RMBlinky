@@ -1,13 +1,16 @@
 package frc.robot;
 
-import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.WaitCommand;
+import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.Robot.RobotRunType;
 import frc.robot.commands.Drive;
+import frc.robot.commands.IntakeCommand;
+import frc.robot.commands.OutTakeCommand;
+import frc.robot.subsystems.Intake.Intake;
 import frc.robot.subsystems.drive.Drivetrain;
 import frc.robot.subsystems.drive.DrivetrainIO;
 import frc.robot.subsystems.drive.DrivetrainReal;
@@ -20,12 +23,13 @@ import frc.robot.subsystems.drive.DrivetrainReal;
  */
 public class RobotContainer {
     /* Controllers */
-    XboxController driver = new XboxController(0);
+    CommandXboxController driver = new CommandXboxController(0);
     // Initialize AutoChooser Sendable
     private final SendableChooser<String> autoChooser = new SendableChooser<>();
 
     /* Subsystems */
     private Drivetrain driveTrain;
+    private Intake intake;
 
 
     /**
@@ -45,6 +49,7 @@ public class RobotContainer {
                 driveTrain = new Drivetrain(new DrivetrainIO() {});
         }
         // Configure the button bindings
+        driveTrain.setDefaultCommand(new Drive(driveTrain, driver));
         configureButtonBindings();
     }
 
@@ -58,8 +63,9 @@ public class RobotContainer {
     ;
 
     private void configureButtonBindings() {
+        driver.rightTrigger().whileTrue(new OutTakeCommand(intake, driver));
+        driver.leftTrigger().whileTrue(new IntakeCommand(intake, driver));
 
-        driveTrain.setDefaultCommand(new Drive(driveTrain, driver));
 
 
     }

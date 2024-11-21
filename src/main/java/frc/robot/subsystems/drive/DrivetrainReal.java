@@ -22,7 +22,6 @@ public class DrivetrainReal implements DrivetrainIO {
         FRMotor.addFollower(BRMotor);
 
         FRMotor.setInverted(true);
-        BRMotor.setInverted(true);
     }
 
 
@@ -35,8 +34,8 @@ public class DrivetrainReal implements DrivetrainIO {
      * Drive Voltage
      */
     public void setDriveVoltage(double lvolts, double rvolts) {
-        FRMotor.setVoltage(lvolts);
-        FRMotor.setVoltage(rvolts);
+        FLMotor.set(lvolts);
+        FRMotor.set(rvolts);
     }
 
 }

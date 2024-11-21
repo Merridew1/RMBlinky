@@ -22,14 +22,14 @@ public final class Constants {
      */
     public static final class Motors {
         public static final class DriveTrainMotors {
-            public static final int FRMOTOR = 0;
-            public static final int FLMOTOR = 1;
-            public static final int BRMOTOR = 2;
-            public static final int BLMOTOR = 3;
+            public static final int FRMOTOR = 5;
+            public static final int FLMOTOR = 6;
+            public static final int BRMOTOR = 4;
+            public static final int BLMOTOR = 7;
         }
         public static final class IntakeMotors {
-            public static final int LMOTOR = 4;
-            public static final int RMOTOR = 5;
+            public static final int LMOTOR = 1;
+            public static final int RMOTOR = 2;
         }
     }
 

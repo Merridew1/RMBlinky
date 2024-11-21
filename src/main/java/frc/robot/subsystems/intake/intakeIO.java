@@ -1,18 +1,19 @@
-package frc.robot.subsystems.intake;
+package frc.robot.subsystems.Intake;
 
 import org.littletonrobotics.junction.AutoLog;
 
-public interface intakeIO {
+public interface IntakeIO {
 
     @AutoLog
-    public static class intakeIOInputs {
+    public static class IntakeIOInputs {
         public double rightMotor;
         public double leftMotor;
     }
 
     /** Updates the set of loggable inputs. */
+    public default void updateInputs(IntakeIOInputs inputs) {}
 
-    public default void intakePower(double lvolts, double rvolts) {}
+    public default void setIntakeVoltage(double power) {}
 
 }
 
