@@ -4,6 +4,16 @@ package frc.robot;
  * Constants file.
  */
 public final class Constants {
+
+    public static final class ColorsRGB {
+        public static final int[] RED = {255, 0, 0};
+        public static final int[] GREEN = {124, 255, 0};
+        public static final int[] BLUE = {0, 0, 205};
+        public static final int[] PURPLE = {255, 0, 255};
+        public static final int[] PINK = {255, 192, 203};
+
+    }
+
     /**
      * Stick Deadband
      */
