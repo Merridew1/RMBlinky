@@ -12,7 +12,11 @@ import frc.robot.commands.IntakeCommand;
 import frc.robot.commands.OutTakeCommand;
 import frc.robot.commands.RandomMotorCommand;
 import frc.robot.subsystems.Intake.Intake;
+import frc.robot.subsystems.Intake.IntakeIO;
+import frc.robot.subsystems.Intake.intakeReal;
 import frc.robot.subsystems.RandomMotors.RandomMotors;
+import frc.robot.subsystems.RandomMotors.RandomMotorsIO;
+import frc.robot.subsystems.RandomMotors.RandomMotorsReal;
 import frc.robot.subsystems.drive.Drivetrain;
 import frc.robot.subsystems.drive.DrivetrainIO;
 import frc.robot.subsystems.drive.DrivetrainReal;
@@ -43,12 +47,16 @@ public class RobotContainer {
         switch (runtimeType) {
             case kReal:
                 driveTrain = new Drivetrain(new DrivetrainReal());
+                intake = new Intake(new intakeReal());
+                randMot = new RandomMotors(new RandomMotorsReal());
                 break;
             case kSimulation:
                 // drivetrain = new Drivetrain(new DrivetrainSim() {});
                 break;
             default:
                 driveTrain = new Drivetrain(new DrivetrainIO() {});
+                intake = new Intake(new IntakeIO() {});
+                randMot = new RandomMotors(new RandomMotorsIO() {});
         }
         // Configure the button bindings
         driveTrain.setDefaultCommand(new Drive(driveTrain, driver));
