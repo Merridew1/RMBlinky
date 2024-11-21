@@ -10,7 +10,9 @@ import frc.robot.Robot.RobotRunType;
 import frc.robot.commands.Drive;
 import frc.robot.commands.IntakeCommand;
 import frc.robot.commands.OutTakeCommand;
+import frc.robot.commands.RandomMotorCommand;
 import frc.robot.subsystems.Intake.Intake;
+import frc.robot.subsystems.RandomMotors.RandomMotors;
 import frc.robot.subsystems.drive.Drivetrain;
 import frc.robot.subsystems.drive.DrivetrainIO;
 import frc.robot.subsystems.drive.DrivetrainReal;
@@ -30,7 +32,7 @@ public class RobotContainer {
     /* Subsystems */
     private Drivetrain driveTrain;
     private Intake intake;
-
+    private RandomMotors randMot;
 
     /**
      * The container for the robot. Contains subsystems, OI devices, and commands.
@@ -63,12 +65,12 @@ public class RobotContainer {
     ;
 
     private void configureButtonBindings() {
-        driver.rightTrigger().whileTrue(new OutTakeCommand(intake, driver));
-        driver.leftTrigger().whileTrue(new IntakeCommand(intake, driver));
-
-
-
+        driver.rightTrigger().whileTrue(new OutTakeCommand(intake));
+        driver.leftTrigger().whileTrue(new IntakeCommand(intake));
+        driver.a().whileTrue(new RandomMotorCommand(randMot));
     }
+
+
 
     /**
      * Gets the user's selected autonomous command.
