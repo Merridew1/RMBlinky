@@ -1,5 +1,6 @@
 package frc.robot.subsystems.RandomMotors;
 
+import org.littletonrobotics.junction.Logger;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class RandomMotors extends SubsystemBase {
@@ -13,6 +14,8 @@ public class RandomMotors extends SubsystemBase {
     @Override
     public void periodic() {
         io.updateInputs(inputs);
+        Logger.processInputs("RandomMotors", inputs);
+
     }
 
     public void runMotor(double power) {
