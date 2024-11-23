@@ -13,7 +13,7 @@ public interface IntakeIO {
     /** Updates the set of loggable inputs. */
     public default void updateInputs(IntakeIOInputs inputs) {}
 
-    public default void setIntakeVoltage(double power) {}
+    public default void setIntakePower(double power) {}
 
 }
 

@@ -1,6 +1,8 @@
 package frc.robot.subsystems.RandomMotors;
 
 import org.littletonrobotics.junction.Logger;
+
+import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class RandomMotors extends SubsystemBase {
@@ -22,5 +24,12 @@ public class RandomMotors extends SubsystemBase {
         io.runMotor(power);
     }
 
+    public Command runMotorCommand(double power) {
+        return run(() -> runMotor(power));
+    }
 
+    public Command runPositiveCommand() {
+        return runMotorCommand(1);
+    }
+    
 }

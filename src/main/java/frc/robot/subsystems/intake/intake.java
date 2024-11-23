@@ -1,6 +1,8 @@
 package frc.robot.subsystems.Intake;
 
 import org.littletonrobotics.junction.Logger;
+
+import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Intake extends SubsystemBase {
@@ -18,8 +20,24 @@ public class Intake extends SubsystemBase {
 
     }
 
-    public void setIntakeVoltage(int power) {
-        io.setIntakeVoltage(power);
+    public void setIntakePower(double power) {
+        Logger.recordOutput("intake/power", power);
+        io.setIntakePower(power);
     }
+
+
+    public Command runMotorCommand(int power) {
+        return run(() -> setIntakePower(power));
+    }
+
+    
+
+    public Command intakeCommand() {
+        return runMotorCommand(1);
+    }
+    public Command outakCommand() {
+        return runMotorCommand(-1);
+    }
+
 
 }

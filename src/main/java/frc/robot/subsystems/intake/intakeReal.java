@@ -7,10 +7,10 @@ public class intakeReal implements IntakeIO {
     VictorSP rightIntake = new VictorSP(frc.robot.Constants.Motors.IntakeMotors.RMOTOR);
 
 
-    public void setIntakeVoltage(double volts) {
+    public void setIntakePower(double power) {
         rightIntake.setInverted(true);
-        leftIntake.set(volts);
-        rightIntake.set(volts);
+        leftIntake.set(power);
+        rightIntake.set(power);
     }
 
     @Override

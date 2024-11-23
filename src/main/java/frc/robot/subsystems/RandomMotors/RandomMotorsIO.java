@@ -1,7 +1,6 @@
 package frc.robot.subsystems.RandomMotors;
 
 import org.littletonrobotics.junction.AutoLog;
-
 public interface RandomMotorsIO {
 
 
@@ -9,6 +8,8 @@ public interface RandomMotorsIO {
     public static class RandomMotorsIOInputs {
         public double falconMotor;
         public double neoVortex;
+        public double neovelocity;
+        public double falconVelocity;
 
     }
 
