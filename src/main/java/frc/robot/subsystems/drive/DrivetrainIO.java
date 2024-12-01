@@ -11,17 +11,17 @@ public interface DrivetrainIO {
      */
     @AutoLog
     public static class DrivetrainIOInputs {
-        public double rightFrontMotor;
-        public double leftFrontMotor;
-        public double rightBackMotor;
-        public double leftbackMotor;
+        public double rightFrontMotorPWMValueIO;
+        public double leftFrontMotorPWMValueIO;
+        public double rightBackMotorPWMValueIO;
+        public double leftbackMotorPWMIOValue;
     }
 
     /** Updates the set of loggable inputs. */
-    public default void updateInputs(DrivetrainIOInputs inputs) {}
+    public default void updateInputsIO(DrivetrainIOInputs inputs) {}
 
     /** Run the motor at the specified voltage. */
-    public default void setDriveVoltage(double lvolts, double rvolts) {}
+    public default void setDrivePowerIO(double lvolts, double rvolts) {}
 
 
 }

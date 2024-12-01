@@ -6,14 +6,14 @@ public interface RandomMotorsIO {
 
     @AutoLog
     public static class RandomMotorsIOInputs {
-        public double falconMotor;
-        public double neoVortex;
-        public double neovelocity;
-        public double falconVelocity;
+        public double falconMotorIO;
+        public double neoVortexIO;
+        public double neovelocityIO;
+        public double falconVelocityIO;
 
     }
 
-    public default void updateInputs(RandomMotorsIOInputs inputs) {}
+    public default void updateInputsIO(RandomMotorsIOInputs inputs) {}
 
-    public default void runMotor(double voltage) {}
+    public default void runMotorIO(double voltage) {}
 }

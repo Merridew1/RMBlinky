@@ -5,6 +5,7 @@ import edu.wpi.first.wpilibj.motorcontrol.VictorSP;
 public class intakeReal implements IntakeIO {
     VictorSP leftIntake = new VictorSP(frc.robot.Constants.Motors.IntakeMotors.LMOTOR);
     VictorSP rightIntake = new VictorSP(frc.robot.Constants.Motors.IntakeMotors.RMOTOR);
+    
 
 
     public void setIntakePower(double power) {
@@ -14,7 +15,8 @@ public class intakeReal implements IntakeIO {
     }
 
     @Override
-    public void updateInputs(IntakeIOInputs inputs) {};
+    public void updateInputsIO(IntakeIOInputs inputs) {
+    };
 
 }
 

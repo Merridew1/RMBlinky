@@ -2,6 +2,7 @@ package frc.robot.subsystems.drive;
 
 import org.littletonrobotics.junction.Logger;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import edu.wpi.first.wpilibj2.command.Command;
 
 /**
  * Drivetrain subsystem.
@@ -20,12 +21,17 @@ public class Drivetrain extends SubsystemBase {
 
     @Override
     public void periodic() {
-        io.updateInputs(inputs);
+        io.updateInputsIO(inputs);
         Logger.processInputs("Drivetrain", inputs);
     }
 
     public void setPower(double lPower, double rPower) {
-        io.setDriveVoltage(lPower, rPower);
+        io.setDrivePowerIO(lPower, rPower);
     }
+
+    public Command driveCommand(double leftY, double rightY) {
+        return run(() -> setPower(leftY, rightY));
+    }
+
 }
 

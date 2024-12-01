@@ -20,9 +20,9 @@ public class RandomMotorsReal implements RandomMotorsIO {
     }
 
     @Override
-    public void updateInputs(RandomMotorsIOInputs inputs) {
-        inputs.falconVelocity = getFalconVelocity();
-        inputs.neoVortex = getNeoVelocity();
+    public void updateInputsIO(RandomMotorsIOInputs inputs) {
+        inputs.falconVelocityIO = getFalconVelocity();
+        inputs.neoVortexIO = getNeoVelocity();
 
     }
 
@@ -32,7 +32,8 @@ public class RandomMotorsReal implements RandomMotorsIO {
     }
 
     public double getNeoVelocity(){
-        return rEncoder.getVelocity();
+        return rEncoder.getVelocity
+        ();
     }
 
     private double getFalconVelocity() {

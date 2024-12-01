@@ -15,28 +15,28 @@ public class Intake extends SubsystemBase {
 
     @Override
     public void periodic() {
-        io.updateInputs(inputs);
+        io.updateInputsIO(inputs);
         Logger.processInputs("Intake", inputs);
 
     }
 
     public void setIntakePower(double power) {
         Logger.recordOutput("intake/power", power);
-        io.setIntakePower(power);
+        io.setIntakePowerIO(power);
     }
 
 
     public Command runMotorCommand(int power) {
-        return run(() -> setIntakePower(power));
+        return run(() -> setIntakePower(power)); 
     }
 
     
 
     public Command intakeCommand() {
-        return runMotorCommand(1);
+        return runMotorCommand(1); // Borrows runMotorCommand from above at 1
     }
     public Command outakCommand() {
-        return runMotorCommand(-1);
+        return runMotorCommand(-1); // Borrows runMotorCommand from above at -1
     }
 
 

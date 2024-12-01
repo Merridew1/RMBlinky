@@ -7,7 +7,6 @@ import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.WaitCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.Robot.RobotRunType;
-import frc.robot.commands.Drive;
 import frc.robot.subsystems.Intake.Intake;
 import frc.robot.subsystems.Intake.IntakeIO;
 import frc.robot.subsystems.Intake.intakeReal;
@@ -56,7 +55,6 @@ public class RobotContainer {
                 randMot = new RandomMotors(new RandomMotorsIO() {});
         }
         // Configure the button bindings
-        driveTrain.setDefaultCommand(new Drive(driveTrain, driver));
         configureButtonBindings();
     }
 
@@ -72,7 +70,9 @@ public class RobotContainer {
     private void configureButtonBindings() {
         driver.rightTrigger().whileTrue(intake.intakeCommand());
         driver.leftTrigger().whileTrue(intake.outakCommand());
-        driver.a().whileTrue(null);
+        driver.a().whileTrue(randMot.runPositiveCommand());
+        driver.b().whileTrue(randMot.runNegativeCommand());
+        driveTrain.setDefaultCommand(driveTrain.driveCommand(driver.getLeftY(), driver.getRightY()));
     }
 
 

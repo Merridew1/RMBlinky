@@ -6,14 +6,14 @@ public interface IntakeIO {
 
     @AutoLog
     public static class IntakeIOInputs {
-        public double rightMotor;
-        public double leftMotor;
+        public double rightMotorVelocityIO;
+        public double leftMotorVelocityIO;
     }
 
     /** Updates the set of loggable inputs. */
-    public default void updateInputs(IntakeIOInputs inputs) {}
+    public default void updateInputsIO(IntakeIOInputs inputs) {}
 
-    public default void setIntakePower(double power) {}
+    public default void setIntakePowerIO(double power) {}
 
 }
 

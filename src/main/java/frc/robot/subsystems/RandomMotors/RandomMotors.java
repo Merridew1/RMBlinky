@@ -15,13 +15,13 @@ public class RandomMotors extends SubsystemBase {
 
     @Override
     public void periodic() {
-        io.updateInputs(inputs);
+        io.updateInputsIO(inputs);
         Logger.processInputs("RandomMotors", inputs);
 
     }
 
     public void runMotor(double power) {
-        io.runMotor(power);
+        io.runMotorIO(power);
     }
 
     public Command runMotorCommand(double power) {
@@ -32,4 +32,7 @@ public class RandomMotors extends SubsystemBase {
         return runMotorCommand(1);
     }
     
+        public Command runNegativeCommand() {
+        return runMotorCommand(-1);
+    }
 }
