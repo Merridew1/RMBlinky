@@ -1,6 +1,5 @@
 package frc.robot.subsystems.drive;
 
-import edu.wpi.first.wpilibj.PWM;
 import edu.wpi.first.wpilibj.motorcontrol.VictorSP;
 import frc.robot.Constants;
 
@@ -9,20 +8,20 @@ import frc.robot.Constants;
  */
 public class DrivetrainReal implements DrivetrainIO {
 
-    VictorSP FLMotor = new VictorSP(Constants.Motors.DriveTrainMotors.FLMOTOR);
-    VictorSP FRMotor = new VictorSP(Constants.Motors.DriveTrainMotors.FRMOTOR);
-    VictorSP BLMotor = new VictorSP(Constants.Motors.DriveTrainMotors.BLMOTOR);
-    VictorSP BRMotor = new VictorSP(Constants.Motors.DriveTrainMotors.BRMOTOR);
+    private final VictorSP FLMotor = new VictorSP(Constants.Motors.DriveTrainMotors.FLMOTOR);
+    private final VictorSP FRMotor = new VictorSP(Constants.Motors.DriveTrainMotors.FRMOTOR);
+    private final VictorSP BLMotor = new VictorSP(Constants.Motors.DriveTrainMotors.BLMOTOR);
+    private final VictorSP BRMotor = new VictorSP(Constants.Motors.DriveTrainMotors.BRMOTOR);
 
 
     /**
      * Drivetrain Real
      */
     public DrivetrainReal() {
-        FLMotor.addFollower(BLMotor);
-        FRMotor.addFollower(BRMotor);
+        BLMotor.addFollower(FLMotor);
+        BRMotor.addFollower(FRMotor);
 
-        FRMotor.setInverted(true);
+        BLMotor.setInverted(true);
     }
 
     @Override

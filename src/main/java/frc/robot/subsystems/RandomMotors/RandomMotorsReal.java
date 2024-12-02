@@ -5,7 +5,6 @@ import com.ctre.phoenix6.hardware.TalonFX;
 import com.revrobotics.CANSparkLowLevel.MotorType;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.RelativeEncoder;
-
 import frc.robot.Constants;
 
 public class RandomMotorsReal implements RandomMotorsIO {
@@ -13,10 +12,14 @@ public class RandomMotorsReal implements RandomMotorsIO {
         new CANSparkMax(Constants.Motors.RandomMotors.NEO, MotorType.kBrushless);
     private final TalonFX falcon = new TalonFX(Constants.Motors.RandomMotors.FALCON);
     private RelativeEncoder rEncoder = neo.getEncoder();
-    private StatusSignal <Double> falconVelocity;
+    private StatusSignal<Double> falconVelocity;
 
-    public RandomMotorsReal(){
+    public RandomMotorsReal() {
         falconVelocity = falcon.getVelocity();
+    }
+
+    public double encoder() {
+        return neo.get();
     }
 
     @Override
@@ -31,9 +34,8 @@ public class RandomMotorsReal implements RandomMotorsIO {
         falcon.set(power);
     }
 
-    public double getNeoVelocity(){
-        return rEncoder.getVelocity
-        ();
+    public double getNeoVelocity() {
+        return rEncoder.getVelocity();
     }
 
     private double getFalconVelocity() {

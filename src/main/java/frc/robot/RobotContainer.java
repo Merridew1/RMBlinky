@@ -68,11 +68,11 @@ public class RobotContainer {
     ;
 
     private void configureButtonBindings() {
-        driver.rightTrigger().whileTrue(intake.intakeCommand());
-        driver.leftTrigger().whileTrue(intake.outakCommand());
-        driver.a().whileTrue(randMot.runPositiveCommand());
-        driver.b().whileTrue(randMot.runNegativeCommand());
-        driveTrain.setDefaultCommand(driveTrain.driveCommand(driver.getLeftY(), driver.getRightY()));
+        driver.rightTrigger().whileTrue(intake.intakeCommand(1));
+        driver.leftTrigger().whileTrue(intake.intakeCommand(-1));
+        driver.a().whileTrue(randMot.runMotorCommand(1));
+        driver.b().whileTrue(randMot.runMotorCommand(-1));
+        driveTrain.setDefaultCommand(driveTrain.driveCommand(driver));
     }
 
 
