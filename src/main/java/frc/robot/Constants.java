@@ -42,8 +42,8 @@ public final class Constants {
             public static final int RMOTOR = 2;
         }
         public static final class RandomMotors {
-            public static final int NEO = 10;
-            public static final int FALCON = 11;
+            public static final int NEO = 57;
+            public static final int FALCON = 51;
         }
     }
 

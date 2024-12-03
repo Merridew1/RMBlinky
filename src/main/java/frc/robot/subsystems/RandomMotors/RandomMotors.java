@@ -25,7 +25,7 @@ public class RandomMotors extends SubsystemBase {
     }
 
     public Command runMotorCommand(double power) {
-        return startEnd(() -> {
+        return runEnd(() -> {
             runMotor(power);
         }, () -> {
             runMotor(0);
