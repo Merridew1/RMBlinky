@@ -35,7 +35,8 @@ public class DrivetrainReal implements DrivetrainIO {
     /**
      * Drive Voltage
      */
-    public void setDrivePower(double lvolts, double rvolts) {
+    @Override
+    public void setDrivePowerIO(double lvolts, double rvolts) {
         FLMotor.set(lvolts);
         FRMotor.set(rvolts);
     }

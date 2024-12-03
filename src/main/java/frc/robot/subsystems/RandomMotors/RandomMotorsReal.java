@@ -29,7 +29,8 @@ public class RandomMotorsReal implements RandomMotorsIO {
 
     }
 
-    public void runMotor(double power) {
+    @Override
+    public void runMotorIO(double power) {
         neo.set(power);
         falcon.set(power);
     }

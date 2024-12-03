@@ -50,9 +50,36 @@ public class RobotContainer {
                 // drivetrain = new Drivetrain(new DrivetrainSim() {});
                 break;
             default:
-                driveTrain = new Drivetrain(new DrivetrainIO() {});
-                intake = new Intake(new IntakeIO() {});
-                randMot = new RandomMotors(new RandomMotorsIO() {});
+                driveTrain = new Drivetrain(new DrivetrainIO() {
+
+                    @Override
+                    public void updateInputsIO(DrivetrainIOInputs inputs) {
+
+                    }
+
+                    @Override
+                    public void setDrivePowerIO(double lvolts, double rvolts) {
+
+                    }
+                });
+                intake = new Intake(new IntakeIO() {
+
+                    @Override
+                    public void updateInputsIO(IntakeIOInputs inputs) {
+
+                    }
+
+                    @Override
+                    public void setIntakePowerIO(double power) {}
+                });
+                randMot = new RandomMotors(new RandomMotorsIO() {
+
+                    @Override
+                    public void updateInputsIO(RandomMotorsIOInputs inputs) {}
+
+                    @Override
+                    public void runMotorIO(double voltage) {}
+                });
         }
         // Configure the button bindings
         configureButtonBindings();
@@ -74,7 +101,6 @@ public class RobotContainer {
         driver.b().whileTrue(randMot.runMotorCommand(-1));
         driveTrain.setDefaultCommand(driveTrain.driveCommand(driver));
     }
-
 
 
     /**

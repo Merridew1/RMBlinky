@@ -31,7 +31,7 @@ public class Drivetrain extends SubsystemBase {
     }
 
     public Command driveCommand(CommandXboxController controller) {
-        return run(() -> setPower(controller.getLeftY(), controller.getRightY()));
+        return run(() -> {setPower(controller.getLeftY(), controller.getRightY());});
     }
 
 }

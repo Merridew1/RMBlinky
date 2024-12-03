@@ -14,11 +14,9 @@ public interface RandomMotorsIO {
 
     }
 
-    public default void updateInputsIO(RandomMotorsIOInputs inputs) {}
+    public void updateInputsIO(RandomMotorsIOInputs inputs);
 
-    public default void runMotorIO(double voltage) {}
+    public void runMotorIO(double voltage);
 
-    public default double encoder() {
-        return 0;
-    }
+
 }

@@ -11,9 +11,9 @@ public interface IntakeIO {
     }
 
     /** Updates the set of loggable inputs. */
-    public default void updateInputsIO(IntakeIOInputs inputs) {}
+    public void updateInputsIO(IntakeIOInputs inputs);
 
-    public default void setIntakePowerIO(double power) {}
+    public void setIntakePowerIO(double power);
 
 }
 

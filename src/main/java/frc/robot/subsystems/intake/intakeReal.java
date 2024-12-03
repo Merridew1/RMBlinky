@@ -13,7 +13,8 @@ public class intakeReal implements IntakeIO {
         leftIntake.addFollower(rightIntake);
     }
 
-    public void setIntakePower(double power) {
+    @Override
+    public void setIntakePowerIO(double power) {
         leftIntake.set(power);
     }
 
