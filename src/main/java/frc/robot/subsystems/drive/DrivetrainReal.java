@@ -20,8 +20,6 @@ public class DrivetrainReal implements DrivetrainIO {
     public DrivetrainReal() {
         BLMotor.addFollower(FLMotor);
         BRMotor.addFollower(FRMotor);
-
-        BLMotor.setInverted(true);
     }
 
     @Override
@@ -38,7 +36,7 @@ public class DrivetrainReal implements DrivetrainIO {
     @Override
     public void setDrivePowerIO(double lvolts, double rvolts) {
         FLMotor.set(lvolts);
-        FRMotor.set(rvolts);
+        FRMotor.set(-rvolts);
     }
 
 }

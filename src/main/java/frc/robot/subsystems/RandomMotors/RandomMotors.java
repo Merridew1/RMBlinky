@@ -10,6 +10,7 @@ public class RandomMotors extends SubsystemBase {
 
     public RandomMotors(RandomMotorsIO io) {
         this.io = io;
+        io.updateInputsIO(inputs);
     }
 
     @Override
