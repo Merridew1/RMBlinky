@@ -1,14 +1,14 @@
-package frc.robot.subsystems.Intake;
+package frc.robot.subsystems.intake2;
 
 import edu.wpi.first.wpilibj.motorcontrol.VictorSP;
 
-public class intakeReal implements IntakeIO {
+public class IntakeReal2 implements IntakeIO {
     VictorSP leftIntake = new VictorSP(frc.robot.Constants.Motors.IntakeMotors.LMOTOR);
     VictorSP rightIntake = new VictorSP(frc.robot.Constants.Motors.IntakeMotors.RMOTOR);
 
 
 
-    public intakeReal() {
+    public IntakeReal2() {
         rightIntake.setInverted(true);
         leftIntake.addFollower(rightIntake);
     }

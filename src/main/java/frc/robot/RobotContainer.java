@@ -31,7 +31,7 @@ public class RobotContainer {
 
     /* Subsystems */
     private Drivetrain driveTrain;
-    private Intake intake;
+    private Intake2 intake;
     private RandomMotors randMot;
 
     /**
@@ -43,7 +43,7 @@ public class RobotContainer {
         switch (runtimeType) {
             case kReal:
                 driveTrain = new Drivetrain(new DrivetrainReal());
-                intake = new Intake(new intakeReal());
+                intake = new Intake2(new IntakeReal2());
                 randMot = new RandomMotors(new RandomMotorsReal());
                 break;
             case kSimulation:
@@ -62,7 +62,7 @@ public class RobotContainer {
 
                     }
                 });
-                intake = new Intake(new IntakeIO() {
+                intake = new Intake2(new IntakeIO() {
 
                     @Override
                     public void updateInputsIO(IntakeIOInputs inputs) {
