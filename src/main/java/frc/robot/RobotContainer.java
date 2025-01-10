@@ -7,9 +7,8 @@ import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.WaitCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.Robot.RobotRunType;
-import frc.robot.subsystems.Intake.Intake;
-import frc.robot.subsystems.Intake.IntakeIO;
-import frc.robot.subsystems.Intake.intakeReal;
+import frc.robot.subsystems.Intake2.Intake2;
+import frc.robot.subsystems.Intake2.IntakeReal2;
 import frc.robot.subsystems.RandomMotors.RandomMotors;
 import frc.robot.subsystems.RandomMotors.RandomMotorsIO;
 import frc.robot.subsystems.RandomMotors.RandomMotorsReal;
@@ -18,9 +17,12 @@ import frc.robot.subsystems.drive.DrivetrainIO;
 import frc.robot.subsystems.drive.DrivetrainReal;
 
 /**
- * This class is where the bulk of the robot should be declared. Since Command-based is a
- * "declarative" paradigm, very little robot logic should actually be handled in the {@link Robot}
- * periodic methods (other than the scheduler calls). Instead, the structure of the robot (including
+ * This class is where the bulk of the robot should be declared. Since
+ * Command-based is a
+ * "declarative" paradigm, very little robot logic should actually be handled in
+ * the {@link Robot}
+ * periodic methods (other than the scheduler calls). Instead, the structure of
+ * the robot (including
  * subsystems, commands, and button mappings) should be declared here.
  */
 public class RobotContainer {
@@ -70,15 +72,18 @@ public class RobotContainer {
                     }
 
                     @Override
-                    public void setIntakePowerIO(double power) {}
+                    public void setIntakePowerIO(double power) {
+                    }
                 });
                 randMot = new RandomMotors(new RandomMotorsIO() {
 
                     @Override
-                    public void updateInputsIO(RandomMotorsIOInputs inputs) {}
+                    public void updateInputsIO(RandomMotorsIOInputs inputs) {
+                    }
 
                     @Override
-                    public void runMotorIO(double voltage) {}
+                    public void runMotorIO(double voltage) {
+                    }
                 });
         }
         // Configure the button bindings
@@ -86,9 +91,11 @@ public class RobotContainer {
     }
 
     /**
-     * Use this method to define your button->command mappings. Buttons can be created by
+     * Use this method to define your button->command mappings. Buttons can be
+     * created by
      * instantiating a {@link GenericHID} or one of its subclasses
-     * ({@link edu.wpi.first.wpilibj.Joystick} or {@link XboxController}), and then passing it to a
+     * ({@link edu.wpi.first.wpilibj.Joystick} or {@link XboxController}), and then
+     * passing it to a
      * {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
      */
 
@@ -101,7 +108,6 @@ public class RobotContainer {
         driver.b().whileTrue(randMot.runMotorCommand(-1));
         driveTrain.setDefaultCommand(driveTrain.driveCommand(driver));
     }
-
 
     /**
      * Gets the user's selected autonomous command.

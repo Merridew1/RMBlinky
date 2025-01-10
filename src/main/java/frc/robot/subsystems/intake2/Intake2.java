@@ -1,15 +1,14 @@
-package frc.robot.subsystems.intake2;
+package frc.robot.subsystems.Intake2;
 
-import org.littletonrobotics.junction.Logger;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Intake2 extends SubsystemBase {
-    private IntakeIO io;
-    private IntakeIOInputsAutoLogged inputs = new IntakeIOInputsAutoLogged();
+    private IntakeIO2 io;
+    private IntakeIO2InputsAutoLogged inputs = new IntakeIO2InputsAutoLogged();
 
-    public Intake2(IntakeIO io) {
+    public Intake2(IntakeIO2 io) {
         this.io = io;
     }
 
@@ -25,7 +24,6 @@ public class Intake2 extends SubsystemBase {
         io.setIntakePowerIO(power);
     }
 
-
     public Command intakeCommand(double power) {
         return Commands.startEnd(() -> {
             setIntakePower(power);
@@ -33,6 +31,5 @@ public class Intake2 extends SubsystemBase {
             setIntakePower(0);
         }, this);
     }
-
 
 }

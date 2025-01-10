@@ -1,12 +1,10 @@
-package frc.robot.subsystems.intake2;
+package frc.robot.subsystems.Intake2;
 
 import edu.wpi.first.wpilibj.motorcontrol.VictorSP;
 
-public class IntakeReal2 implements IntakeIO {
+public class IntakeReal2 implements IntakeIO2 {
     VictorSP leftIntake = new VictorSP(frc.robot.Constants.Motors.IntakeMotors.LMOTOR);
     VictorSP rightIntake = new VictorSP(frc.robot.Constants.Motors.IntakeMotors.RMOTOR);
-
-
 
     public IntakeReal2() {
         rightIntake.setInverted(true);
@@ -19,7 +17,7 @@ public class IntakeReal2 implements IntakeIO {
     }
 
     @Override
-    public void updateInputsIO(IntakeIOInputs inputs) {};
+    public void updateInputsIO(IntakeIO2Inputs inputs) {
+    };
 
 }
-
