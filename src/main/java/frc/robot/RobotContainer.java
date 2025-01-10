@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj2.command.WaitCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.Robot.RobotRunType;
 import frc.robot.subsystems.Intake2.Intake2;
+import frc.robot.subsystems.Intake2.IntakeIO2;
 import frc.robot.subsystems.Intake2.IntakeReal2;
 import frc.robot.subsystems.RandomMotors.RandomMotors;
 import frc.robot.subsystems.RandomMotors.RandomMotorsIO;
@@ -64,16 +65,17 @@ public class RobotContainer {
 
                     }
                 });
-                intake = new Intake2(new IntakeIO() {
+                intake = new Intake2(new IntakeIO2() {
 
                     @Override
-                    public void updateInputsIO(IntakeIOInputs inputs) {
+                    public void updateInputsIO2(IntakeIO2Inputs inputs) {
 
                     }
 
                     @Override
                     public void setIntakePowerIO(double power) {
                     }
+
                 });
                 randMot = new RandomMotors(new RandomMotorsIO() {
 

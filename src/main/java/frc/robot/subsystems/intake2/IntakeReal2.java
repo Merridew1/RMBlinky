@@ -17,7 +17,7 @@ public class IntakeReal2 implements IntakeIO2 {
     }
 
     @Override
-    public void updateInputsIO(IntakeIO2Inputs inputs) {
+    public void updateInputsIO2(IntakeIO2Inputs inputs) {
     };
 
 }
